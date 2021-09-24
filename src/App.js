@@ -2,15 +2,16 @@ import user from './user.json';
 import statisticalData from './statistical-data.json';
 import friends from './friends.json';
 import transactions from './transactions.json';
-import Profile from './components/Profile';
-import Statistics from './components/Statistics';
-import FriendList from './components/friend-list-item/FriendList';
-import FriendListItem from './components/friend-list-item/FriendListItem';
-import TransactionHistory from './components/TransactionHistory';
+import Profile from './components/Profile/Profile';
+import Statistics from './components/Statistics/Statistics';
+import FriendList from './components/Friend-list-item/FriendList';
+import FriendListItem from './components/Friend-list-item/FriendListItem';
+import TransactionHistory from './components/TransactionHistory/TransactionHistory';
+import Container from './components/Container/Container';
 
 function App() {
   return (
-    <div>
+    <Container>
       <Profile
         name={user.name}
         tag={user.tag}
@@ -18,7 +19,7 @@ function App() {
         avatar={user.avatar}
         stats={user.stats}
       />
-      <Statistics stats={statisticalData} />;
+      <Statistics stats={statisticalData} />
       <FriendList>
         {friends.map(friend => (
           <FriendListItem
@@ -30,8 +31,8 @@ function App() {
           />
         ))}
       </FriendList>
-      <TransactionHistory items={transactions} />;
-    </div>
+      <TransactionHistory items={transactions} />
+    </Container>
   );
 }
 
